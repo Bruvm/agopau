@@ -1,32 +1,9 @@
-import { Box, Button, Card, CardContent, Container, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Card, CardContent, Container, Grid, Typography } from "@mui/material";
 import arrows from '../assets/img/arrow.png'
-import img from '../assets/img/img.png'
-import { useState } from "react";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Map from "./Map";
 import theme from "../theme";
 
 export default function PLaces() {
-    const images = [
-        [img],
-        [img],
-        [img],
-    ];
-
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const handlePrev = () => {
-        setActiveIndex((prev) =>
-            prev === 0 ? images.length - 1 : prev - 1
-        );
-    };
-
-    const handleNext = () => {
-        setActiveIndex((prev) =>
-            prev === images.length - 1 ? 0 : prev + 1
-        );
-    };
     return (
         <Box
             sx={{

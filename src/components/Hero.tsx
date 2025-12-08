@@ -69,7 +69,14 @@ export default function Hero() {
                                     variant="h2"
                                     sx={{
                                         fontWeight: 700,
-                                        color: "text.secondary",
+                                        color: "custom.white",
+                                         fontSize: {
+      xs: "2rem",   // móviles
+      sm: "2.5rem", // tablets
+      md: "3rem",   // desktop
+      lg: "3.5rem"  // pantallas grandes
+    },
+    lineHeight: 1.1
                                     }}
                                 >
                                     Tu carga, en
@@ -80,7 +87,14 @@ export default function Hero() {
                                     variant="h2"
                                     sx={{
                                         fontWeight: 700,
-                                        color: "text.secondary",
+                                        color: "custom.white",
+                                         fontSize: {
+      xs: "2rem",   // móviles
+      sm: "2.5rem", // tablets
+      md: "3rem",   // desktop
+      lg: "3.5rem"  // pantallas grandes
+    },
+    lineHeight: 1.1
                                     }}
                                 >
                                     manos seguras y
@@ -91,7 +105,14 @@ export default function Hero() {
                                     variant="h2"
                                     sx={{
                                         fontWeight: 700,
-                                        color: "text.secondary",
+                                        color: "custom.white",
+                                         fontSize: {
+      xs: "2rem",   // móviles
+      sm: "2.5rem", // tablets
+      md: "3rem",   // desktop
+      lg: "3.5rem"  // pantallas grandes
+    },
+    lineHeight: 1.1
                                     }}
                                 >
                                     expertas

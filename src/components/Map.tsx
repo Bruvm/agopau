@@ -1,12 +1,11 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
+import L, { type LatLngTuple } from "leaflet";
 
-// 🔹 Pin personalizado (opcional)
 const customIcon = new L.Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/252/252025.png", // o cualquier imagen
-  iconSize: [32, 32], // tamaño del ícono
-  iconAnchor: [16, 32], // punto de anclaje (centro abajo)
-  popupAnchor: [0, -32], // posición del popup respecto al ícono
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/252/252025.png",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
 });
 
 const provinciasArgentinas: { nombre: string; coords: LatLngTuple }[] = [
@@ -40,14 +39,11 @@ const provinciasArgentinas: { nombre: string; coords: LatLngTuple }[] = [
 export default function MyMap() {
   return (
     <MapContainer
-      center={[-38.4161, -63.6167]} // Centro aproximado de Argentina
+      center={[-38.4161, -63.6167]}
       zoom={4}
       style={{ height: "500px", width: "100%" }}
     >
-      {/* Capa base - OpenStreetMap */}
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-      {/* Marcadores */}
       {provinciasArgentinas.map((prov, idx) => (
         <Marker key={idx} position={prov.coords} icon={customIcon}>
           <Popup>{prov.nombre}</Popup>

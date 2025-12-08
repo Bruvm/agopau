@@ -1,17 +1,12 @@
-import { Box, Button, Card, CardContent, Container, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Card, CardContent, Container, Grid, IconButton, Typography } from "@mui/material";
 import arrows from '../assets/img/arrow.png'
 import img from '../assets/img/img.png'
 import { useState } from "react";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Map from "./Map";
 
 export default function History() {
-    const images = [
-        [img],
-        [img],
-        [img],
-    ];
+    const images = [img, img, img];
+
 
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -45,7 +40,6 @@ export default function History() {
                                     <Grid container spacing={3}>
                                         <Grid size={{ xs: 6 }}>
                                             <Box sx={{ position: "relative", width: "100%", overflow: "hidden" }}>
-                                                {/* Carrusel */}
                                                 <Box
                                                     sx={{
                                                         display: "flex",
@@ -73,6 +67,8 @@ export default function History() {
                                                                     objectFit: "cover",
                                                                 }}
                                                             />
+                                                            
+                                                            
                                                         </Box>
                                                     ))}
                                                 </Box>

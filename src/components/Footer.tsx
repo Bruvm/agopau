@@ -1,7 +1,6 @@
-import { Box, Container, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { Box, Container, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import logoOne from "../assets/img/AGOSPAU-B.png";
 import logoTwo from "../assets/img/AGOSPAUSA-B.png";
-import Divider from '@mui/material/Divider';
 import arrows from '../assets/img/arrow.png'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
