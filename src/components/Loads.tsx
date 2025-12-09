@@ -6,12 +6,15 @@ import {
     Typography,
 
 } from "@mui/material";
-import img from '../assets/img/img.png'
+import transportOne from '../assets/img/T7.jpg'
+import transportTwo from '../assets/img/T6.jpg'
+import transportThree from '../assets/img/T3.jpg'
+import transportFour from '../assets/img/T2.jpg'
 
 export default function Loads() {
 
     return (
-        <Container sx={{ position: "relative", my: '150px' }}>
+        <Container sx={{ position: "relative", my: '150px' }} id={'services'}>
             <Grid
                 container
                 alignItems="center"
@@ -40,47 +43,98 @@ export default function Loads() {
             >
                 <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                     <Box
-                        component="img"
-                        src={img}
                         sx={{
-                            height: '300px',
+                            height: 300,
                             width: "100%",
-                            backgroundSize: "cover",
+                            overflow: "hidden",
                         }}
-                    />
+                    >
+                        <Box
+                            component="img"
+                            src={transportOne}
+                            sx={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                transition: "transform 0.4s ease", 
+                                "&:hover": {
+                                transform: "scale(1.05)",
+                                },
+                            }}
+                        />
+                    </Box>
                 </Grid>
+
                 <Grid size={{ xs: 12, sm: 6, md: 8 }}>
                     <Box
-                        component="img"
-                        src={img}
                         sx={{
-                            height: '300px',
+                            height: 300,
                             width: "100%",
-                            backgroundSize: "cover",
+                            overflow: "hidden",
                         }}
-                    />
+                    >
+                        <Box
+                            component="img"
+                            src={transportTwo}
+                            sx={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                transition: "transform 0.4s ease",
+                                "&:hover": {
+                                transform: "scale(1.05)",
+                                },
+                            }}
+                        />
+                    </Box>
                 </Grid>
+
                 <Grid size={{ xs: 12, sm: 6, md: 8 }}>
                     <Box
-                        component="img"
-                        src={img}
                         sx={{
-                            height: '300px',
+                            height: 300,
                             width: "100%",
-                            backgroundSize: "cover",
+                            overflow: "hidden",
                         }}
-                    />
+                    >
+                        <Box
+                            component="img"
+                            src={transportThree}
+                            sx={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                transition: "transform 0.4s ease",
+                                "&:hover": {
+                                transform: "scale(1.05)",
+                                },
+                            }}
+                        />
+                    </Box>
                 </Grid>
+
                 <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                     <Box
-                        component="img"
-                        src={img}
                         sx={{
-                            height: '300px',
+                            height: 300,
                             width: "100%",
-                            backgroundSize: "cover",
+                            overflow: "hidden",
                         }}
-                    />
+                    >
+                        <Box
+                            component="img"
+                            src={transportFour}
+                            sx={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                transition: "transform 0.4s ease",
+                                "&:hover": {
+                                transform: "scale(1.05)",
+                                },
+                            }}
+                        />
+                    </Box>
                 </Grid>
             </Grid>
 

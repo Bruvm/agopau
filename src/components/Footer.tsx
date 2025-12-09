@@ -8,58 +8,36 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export default function Footer() {
     const quickLinks = [
-        {
-            name: 'Nosotros',
-            href: '#nosotros'
-        },
-        {
-            name: 'Servicios',
-            href: '#servicios'
-        },
-        {
-            name: 'Destinos',
-            href: '#destino'
-        },
-        {
-            name: 'Nuestros Clientes',
-            href: '#clientes'
-        },
-        {
-            name: 'Preguntas frecuentes',
-            href: '#preguntas'
-        },
-        {
-            name: 'Contacto',
-            href: '#contacto'
-        }
-    ]
+        { name: 'Nuestra Empresa', href: '#about' },
+        { name: 'Historia', href: '#history' },
+        { name: 'Servicios', href: '#services' },
+        { name: 'Destinos', href: '#places' },
+        { name: 'Nuestros Clientes', href: '#clients' },
+        { name: 'Contacto', href: '#contact' }
+    ];
 
     const contacts = [
         {
             icon: <LocalPhoneIcon />,
-            text: '+54 353 4256029'
+            text: '+54 353 4256029',
+            href: 'tel:+543534256029'
         },
         {
             icon: <LocalPhoneIcon />,
-            text: '+54 353 4267149'
+            text: '+54 353 4267149',
+            href: 'tel:+543534267149'
         },
         {
             icon: <EmailIcon />,
-            text: 'logistica@agopausrl.com.ar'
+            text: 'logistica@agopausrl.com.ar',
+            href: 'mailto:logistica@agopausrl.com.ar'
         },
         {
             icon: <LocationOnIcon />,
-            text: 'Bv. Sabattini Esq. Yapeyú, James Craik, Córdoba'
+            text: 'Bv. Sabattini Esq. Yapeyú, James Craik, Córdoba',
+            href: 'https://www.google.com/maps/search/?api=1&query=Bv.+Sabattini+Esq.+Yapey%C3%BA,+James+Craik,+C%C3%B3rdoba'
         },
-    ]
-
-
-
-
-
-
-
-
+    ];
 
     return (
         <Box
@@ -77,14 +55,11 @@ export default function Footer() {
         >
             <Container maxWidth="xl">
                 <Grid container spacing={0} justifyContent="center">
-                    <Grid size={{ xs: 12 }}>
-
-                    </Grid>
+                    <Grid size={{ xs: 12 }}></Grid>
                 </Grid>
+
                 <Grid container spacing={0} justifyContent="center">
                     <Grid size={{ xs: 12, md: 6 }}>
-
-
                         <Box
                             component="img"
                             src={logoOne}
@@ -98,8 +73,8 @@ export default function Footer() {
                             alt="AgoPau"
                             sx={{ height: 50, marginRight: '8px' }}
                         />
-
                     </Grid>
+
                     <Grid
                         size={{ xs: 12, md: 3 }}
                         display={'flex'}
@@ -112,11 +87,11 @@ export default function Footer() {
                                 mb: 3,
                                 fontWeight: 700,
                                 color: "#FDF8E8",
-
                             }}
                         >
                             Enlaces rápidos
                         </Typography>
+
                         <List sx={{ listStyle: 'none', p: 0, m: 0, fontSize: '14px' }}>
                             {quickLinks.map((item) => (
                                 <ListItem key={item.name} disablePadding>
@@ -137,9 +112,9 @@ export default function Footer() {
                                 </ListItem>
                             ))}
                         </List>
-
-
                     </Grid>
+
+                    {/* CONTACTOS */}
                     <Grid
                         size={{ xs: 12, md: 3 }}
                         display={'flex'}
@@ -152,26 +127,39 @@ export default function Footer() {
                                 mb: 3,
                                 fontWeight: 700,
                                 color: "#FDF8E8",
-
                             }}
                         >
                             Contactos
                         </Typography>
+
                         <List sx={{ listStyle: 'none', p: 0, m: 0, fontSize: '14px' }}>
                             {contacts.map((item, i) => (
                                 <ListItem key={i} disablePadding>
                                     <ListItemIcon sx={{ color: "#F5F5F5", minWidth: "36px", alignItems: 'flex-start' }}>
                                         {item.icon}
                                     </ListItemIcon>
+
                                     <ListItemText
                                         sx={{
                                             textDecoration: 'none',
                                             color: '#F5F5F5',
                                             fontSize: '0.95rem',
                                             marginBottom: '5px',
+                                            cursor: 'pointer'
                                         }}
                                     >
-                                        {item.text}
+                                        <Box
+                                            component="a"
+                                            href={item.href}
+                                            target={item.href.startsWith('http') ? '_blank' : undefined}
+                                            rel="noopener noreferrer"
+                                            style={{
+                                                color: '#F5F5F5',
+                                                textDecoration: 'none'
+                                            }}
+                                        >
+                                            {item.text}
+                                        </Box>
                                     </ListItemText>
                                 </ListItem>
                             ))}

@@ -13,6 +13,7 @@ import Hero from "../components/Hero"
 import History from "../components/History"
 import Loads from "../components/Loads"
 import PLaces from "../components/Places"
+import WhatsAppButton from "../components/WhatsAppButton"
 
 
 
@@ -20,6 +21,7 @@ function Layout() {
 
   return (
     <>
+    <WhatsAppButton/>
     <Hero/>
     <AboutUs />
     <History/>

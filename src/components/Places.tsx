@@ -6,6 +6,7 @@ import theme from "../theme";
 export default function PLaces() {
     return (
         <Box
+            id='places'
             sx={{
                 width: "100%",
                  background: `linear-gradient(to bottom, ${theme.palette.primary.main} 0% 50%, ${theme.palette.background.default} 50% 100%)`,

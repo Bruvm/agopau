@@ -22,16 +22,16 @@ export default function Hero() {
 
             <Box
                 sx={{
-                width: { xs: "100%", md: "33.333%" },
-                height: "100%",
-                backgroundColor: "primary.main", 
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                p: { xs: 3, md: 6 },
-                color: "white",
-                zIndex: 2,
+                    width: { xs: "100%", md: "33.333%" },
+                    height: "100%",
+                    backgroundColor: "primary.main",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    p: { xs: 3, md: 6 },
+                    color: "white",
+                    zIndex: 2,
                 }}
             />
             <Box
@@ -48,21 +48,23 @@ export default function Hero() {
                         sm: "none",
                         md: "block"
                     },
-                    zIndex:10
+                    zIndex: 10
                 }}
             />
 
             <Box sx={{ position: "absolute", zIndex: 99, top: 0, left: 0, width: "100%" }}>
                 <Navbar />
                 <Container
-                    maxWidth="xl"
+                    maxWidth="lg"
                     sx={{
-                        height: "calc(100vh - 69px)",
+                        height: "100vh",
                         display: "flex",
                         alignItems: "center",
+                        p: 0,
+                        pt: '100px'
                     }}
                 >
-                    <Grid container spacing={0} sx={{mb: '50px'}}>
+                    <Grid container spacing={0} sx={{ mb: '50px' }}>
                         <Grid size={{ xs: 12 }}>
                             <Box mb={'10px'}>
                                 <Typography
@@ -70,13 +72,13 @@ export default function Hero() {
                                     sx={{
                                         fontWeight: 700,
                                         color: "custom.white",
-                                         fontSize: {
-      xs: "2rem",   // móviles
-      sm: "2.5rem", // tablets
-      md: "3rem",   // desktop
-      lg: "3.5rem"  // pantallas grandes
-    },
-    lineHeight: 1.1
+                                        fontSize: {
+                                            xs: "2rem",  
+                                            sm: "2.5rem",
+                                            md: "3rem", 
+                                            lg: "3.5rem"
+                                        },
+                                        lineHeight: 1.1
                                     }}
                                 >
                                     Tu carga, en
@@ -88,13 +90,13 @@ export default function Hero() {
                                     sx={{
                                         fontWeight: 700,
                                         color: "custom.white",
-                                         fontSize: {
-      xs: "2rem",   // móviles
-      sm: "2.5rem", // tablets
-      md: "3rem",   // desktop
-      lg: "3.5rem"  // pantallas grandes
-    },
-    lineHeight: 1.1
+                                        fontSize: {
+                                            xs: "2rem", 
+                                            sm: "2.5rem",
+                                            md: "3rem",
+                                            lg: "3.5rem"
+                                        },
+                                        lineHeight: 1.1
                                     }}
                                 >
                                     manos seguras y
@@ -106,13 +108,13 @@ export default function Hero() {
                                     sx={{
                                         fontWeight: 700,
                                         color: "custom.white",
-                                         fontSize: {
-      xs: "2rem",   // móviles
-      sm: "2.5rem", // tablets
-      md: "3rem",   // desktop
-      lg: "3.5rem"  // pantallas grandes
-    },
-    lineHeight: 1.1
+                                        fontSize: {
+                                            xs: "2rem",
+                                            sm: "2.5rem",
+                                            md: "3rem",
+                                            lg: "3.5rem"
+                                        },
+                                        lineHeight: 1.1
                                     }}
                                 >
                                     expertas
@@ -120,15 +122,15 @@ export default function Hero() {
                             </Box>
                         </Grid>
                         <Grid size={{ xs: 12 }} mt={'25px'}>
-                             <Button 
-                                variant="contained" 
+                            <Button
+                                variant="contained"
                                 size={isMobile ? "small" : "medium"}
-                                href="#contact"
+                                href="#services"
                                 sx={{ py: 1, px: 3, backgroundColor: 'secondary.main', borderRadius: 0, "&:hover": { backgroundColor: "secondary.light" } }}
                                 endIcon={<KeyboardArrowRightIcon />}
                             >
-                                Nuestros cargas
-                                </Button>
+                                Nuestras cargas
+                            </Button>
                         </Grid>
                     </Grid>
                 </Container>

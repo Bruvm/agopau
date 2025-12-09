@@ -6,7 +6,6 @@ import {
   Typography,
   IconButton,
 } from "@mui/material";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import img from '../assets/img/img.png'
 const images = [
@@ -31,7 +30,7 @@ export default function AboutUs() {
   };
 
   return (
-    <Container sx={{ position: "relative", my: '150px' }} id='nosotros'>
+    <Container sx={{ position: "relative", py: '150px' }} id='about'>
       <Grid
         container
         alignItems="center"
@@ -53,7 +52,6 @@ export default function AboutUs() {
           </Typography>
         </Grid>
 
-        {/* Carousel */}
         <Grid size={{ xs: 12, md: 7 }}>
           <Box sx={{ overflow: "hidden" }}>
             <Box
@@ -93,7 +91,6 @@ export default function AboutUs() {
         </Grid>
       </Grid>
 
-      {/* Botones flotantes */}
       <IconButton
         onClick={handlePrev}
         sx={{
@@ -112,7 +109,7 @@ export default function AboutUs() {
           "&:hover": { backgroundColor: "secondary.light" }
         }}
       >
-        <ArrowBackIosIcon fontSize="small" />
+        <ArrowForwardIosIcon sx={{ transform: 'rotate(180deg)' }} fontSize="small" />
       </IconButton>
 
 

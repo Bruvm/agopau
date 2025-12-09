@@ -10,15 +10,15 @@ export default function Clients() {
             sx={{
                 width: "100%",
                 backgroundColor: "#EBF8FF",
-                pb: '80px',
-                pt: { xs: '100px', md: '80px' }
+                pb: '120px',
+                pt: { xs: '120px' }
             }}
-            id={'technology'}
+            id={'clients'}
         >
             <Container maxWidth="lg">
                 <Grid container spacing={0} justifyContent="center">
                     <Grid size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
-                        <Typography variant="body1" sx={{ color: '#5B5653', mb: { xs: 5, md: 3 } }}>
+                        <Typography variant="body1" sx={{ color: '#5B5653', mb: { xs: 5, md: 5 } }}>
                             Confian en nosotros
                         </Typography>
                     </Grid>

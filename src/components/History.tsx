@@ -23,6 +23,7 @@ export default function History() {
     };
     return (
         <Box
+            id={'history'}
             sx={{
                 width: "100%",
                 backgroundColor: 'primary.main',
