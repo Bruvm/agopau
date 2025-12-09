@@ -6,7 +6,7 @@ import {
     Typography,
 
 } from "@mui/material";
-import transportOne from '../assets/img/t7.jpg'
+import transportOne from '../assets/img/T8.jpg'
 import transportTwo from '../assets/img/T6.jpg'
 import transportThree from '../assets/img/T3.jpg'
 import transportFour from '../assets/img/T2.jpg'
