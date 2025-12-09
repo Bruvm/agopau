@@ -11,6 +11,7 @@ import transportTwo from '../assets/img/T6.jpg'
 import transportThree from '../assets/img/T3.jpg'
 import transportFour from '../assets/img/T2.jpg'
 
+
 export default function Loads() {
 
     return (
