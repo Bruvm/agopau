@@ -39,7 +39,7 @@ export default function History() {
                             <Card sx={{ width: '100% ', borderRadius: 0}}>
                                 <CardContent sx={{padding: '40px', paddingBottom: '40px !important'}}>
                                     <Grid container spacing={3}>
-                                        <Grid size={{ xs: 6 }}>
+                                        <Grid size={{ xs: 12, md: 6}}>
                                             <Box sx={{ position: "relative", width: "100%", overflow: "hidden" }}>
                                                 <Box
                                                     sx={{
@@ -119,7 +119,7 @@ export default function History() {
                                                 </IconButton>
                                             </Box>
                                         </Grid>
-                                        <Grid size={{ xs: 6 }} px={10} display={'flex'} flexDirection={'column'} justifyContent={'center'}>
+                                        <Grid size={{ xs: 12, md: 6 }} px={{ xs:1, md: 10 }} mt={{sm: 2, md: 0}} display={'flex'} flexDirection={'column'} justifyContent={'center'}>
                                             <Typography variant="h5" fontWeight="bold" gutterBottom>
                                                 Nuestra historia
                                             </Typography>

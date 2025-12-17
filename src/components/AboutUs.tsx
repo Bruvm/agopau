@@ -37,7 +37,7 @@ export default function AboutUs() {
         justifyContent="flex-end"
         spacing={3}
       >
-        <Grid size={{ xs: 12, md: 4 }} pr={1}>
+        <Grid size={{ xs: 12, md: 4 }} pr={1} mb={{ sm: 2, md: 0 }}>
           <Typography variant="h5" fontWeight="bold" gutterBottom>
             Sobre nosotros
           </Typography>
@@ -95,7 +95,10 @@ export default function AboutUs() {
         onClick={handlePrev}
         sx={{
           position: "absolute",
-          top: "50%",
+          top: {
+            xs: '65%',
+            md: "50%"
+          },
           left: 0,
           transform: "translateY(-50%)",
           bgcolor: "secondary.main",
@@ -117,7 +120,10 @@ export default function AboutUs() {
         onClick={handleNext}
         sx={{
           position: "absolute",
-          top: "50%",
+          top: {
+            xs: '65%',
+            md: "50%"
+          },
           right: 0,
           transform: "translateY(-50%)",
           bgcolor: "secondary.main",

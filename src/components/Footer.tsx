@@ -76,7 +76,7 @@ export default function Footer() {
                     </Grid>
 
                     <Grid
-                        size={{ xs: 12, md: 3 }}
+                        size={{ xs: 6, md: 3 }}
                         display={'flex'}
                         flexDirection={'column'}
                         sx={{ mt: { xs: 3, md: 0 } }}
@@ -87,12 +87,13 @@ export default function Footer() {
                                 mb: 3,
                                 fontWeight: 700,
                                 color: "#FDF8E8",
+                                fontSize: '14px'
                             }}
                         >
                             Enlaces rápidos
                         </Typography>
 
-                        <List sx={{ listStyle: 'none', p: 0, m: 0, fontSize: '14px' }}>
+                        <List sx={{ listStyle: 'none', p: 0, m: 0 }}>
                             {quickLinks.map((item) => (
                                 <ListItem key={item.name} disablePadding>
                                     <Box
@@ -101,9 +102,8 @@ export default function Footer() {
                                         sx={{
                                             textDecoration: 'none',
                                             color: '#F5F5F5',
-                                            fontSize: '0.95rem',
                                             marginBottom: '5px',
-                                            fontWeight: '14px',
+                                            fontSize: '12px',
                                             '&:hover': { color: 'secondary.main', textDecoration: 'none' },
                                         }}
                                     >
@@ -116,7 +116,7 @@ export default function Footer() {
 
                     {/* CONTACTOS */}
                     <Grid
-                        size={{ xs: 12, md: 3 }}
+                        size={{ xs: 6, md: 3 }}
                         display={'flex'}
                         flexDirection={'column'}
                         sx={{ mt: { xs: 3, md: 0 } }}
@@ -127,15 +127,16 @@ export default function Footer() {
                                 mb: 3,
                                 fontWeight: 700,
                                 color: "#FDF8E8",
+                                fontSize: '14px'
                             }}
                         >
                             Contactos
                         </Typography>
 
-                        <List sx={{ listStyle: 'none', p: 0, m: 0, fontSize: '14px' }}>
+                        <List sx={{ listStyle: 'none', p: 0, m: 0, fontSize: '10px' }}>
                             {contacts.map((item, i) => (
                                 <ListItem key={i} disablePadding>
-                                    <ListItemIcon sx={{ color: "#F5F5F5", minWidth: "36px", alignItems: 'flex-start' }}>
+                                    <ListItemIcon sx={{ color: "#F5F5F5", minWidth: "36px", alignItems: 'flex-start', fontSize: '12px', }}>
                                         {item.icon}
                                     </ListItemIcon>
 
@@ -143,7 +144,7 @@ export default function Footer() {
                                         sx={{
                                             textDecoration: 'none',
                                             color: '#F5F5F5',
-                                            fontSize: '0.95rem',
+                                            fontSize: '12px',
                                             marginBottom: '5px',
                                             cursor: 'pointer'
                                         }}
@@ -155,7 +156,8 @@ export default function Footer() {
                                             rel="noopener noreferrer"
                                             style={{
                                                 color: '#F5F5F5',
-                                                textDecoration: 'none'
+                                                textDecoration: 'none',
+                                                fontSize: '12px',
                                             }}
                                         >
                                             {item.text}

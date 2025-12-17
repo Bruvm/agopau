@@ -117,26 +117,51 @@ export default function Navbar() {
                 onClick={handleOpenNosotros}
                 disableRipple
                 sx={{
-                    fontFamily: "Montserrat, sans-serif",
-                    textTransform: "none",
-                    fontWeight:
+                  fontFamily: "Montserrat, sans-serif",
+                  textTransform: "none",
+                  fontWeight:
                     activeSection === "nosotros" ||
-                    subNosotros.some(s => s.href.replace("#", "") === activeSection)
-                        ? 700
-                        : 500,
-                    color:
+                      subNosotros.some(s => s.href.replace("#", "") === activeSection)
+                      ? 700
+                      : 600,
+                  color:
                     activeSection === "nosotros" ||
-                    subNosotros.some(s => s.href.replace("#", "") === activeSection)
-                        ? "#1E2F6E"
-                        : "text.primary",
-                    "&:hover": {
+                      subNosotros.some(s => s.href.replace("#", "") === activeSection)
+                      ? "#1E2F6E"
+                      : "text.primary",
+                  position: "relative",
+                  textDecoration: "none",
+                  transition: "all 0.3s ease",
+
+                  "&:hover": {
                     backgroundColor: "transparent",
-                    color: "#1E2F6E"
-                    }
+                    color: "#1E2F6E",
+                    transform: "translateY(-3px)",
+                  },
+
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    zIndex: -1,
+                    bottom: "-1px",
+                    left: 0,
+                    right: 0,
+                    height: "5px",
+                    backgroundColor: "#1E2F6E",
+                    transform: activeSection === "nosotros" ||
+                      subNosotros.some(s => s.href.replace("#", "") === activeSection)
+                      ? "scaleY(1)" : "scaleY(0)",
+                    transformOrigin: "bottom",
+                    transition: "transform 0.3s ease",
+                  },
+
+                  "&:hover::before": {
+                    transform: "scaleY(1)",
+                  },
                 }}
-                >
+              >
                 Nosotros
-                </Button>
+              </Button>
 
               <Menu
                 anchorEl={anchorElNosotros}
@@ -173,12 +198,35 @@ export default function Navbar() {
                     sx={{
                       fontFamily: "Montserrat, sans-serif",
                       textTransform: "none",
-                      fontWeight: isActive ? 700 : 500,
+                      fontWeight: isActive ? 700 : 600,
                       color: isActive ? "#1E2F6E" : "text.primary",
+                      position: "relative",
+                      textDecoration: "none",
+                      transition: "all 0.3s ease",
+
                       "&:hover": {
                         backgroundColor: "transparent",
-                        color: "#1E2F6E"
-                      }
+                        color: "#1E2F6E",
+                        transform: "translateY(-3px)",
+                      },
+
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        zIndex: -1,
+                        bottom: "-1px",
+                        left: 0,
+                        right: 0,
+                        height: "5px",
+                        backgroundColor: "#1E2F6E",
+                        transform: isActive ? "scaleY(1)" : "scaleY(0)",
+                        transformOrigin: "bottom",
+                        transition: "transform 0.3s ease",
+                      },
+
+                      "&:hover::before": {
+                        transform: "scaleY(1)",
+                      },
                     }}
                   >
                     {page.label}
@@ -188,49 +236,87 @@ export default function Navbar() {
           </Box>
 
           {/* MOBILE MENU */}
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton onClick={handleOpenNavMenu}>
-              <MenuIcon />
-            </IconButton>
-
-            <Menu
-              anchorEl={anchorElNav}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+          {/* MOBILE HEADER */}
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            {/* MOBILE HEADER */}
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
             >
-              {/* NOSOTROS (titulo) */}
-              <MenuItem>
-                <Typography fontWeight={600}>Nosotros</Typography>
-              </MenuItem>
 
-              {/* SUB ITEMS */}
-              {subNosotros.map((item) => (
-                <MenuItem
-                  key={item.href}
-                  component="a"
-                  href={item.href}
-                  onClick={handleCloseNavMenu}
-                  sx={{ pl: 4 }}
-                >
-                  {item.label}
+              {/* LOGOS IZQUIERDA */}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Box component="img" src={logoOne} sx={{ height: 26 }} />
+                <Box component="img" src={logoTwo} sx={{ height: 26 }} />
+              </Box>
+
+              {/* MENU DERECHA */}
+              <IconButton onClick={handleOpenNavMenu}>
+                <MenuIcon />
+              </IconButton>
+
+
+              {/* MENU */}
+              <Menu
+                anchorEl={anchorElNav}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+              >
+                <MenuItem>
+                  <Typography fontWeight={500}>Nosotros</Typography>
                 </MenuItem>
-              ))}
 
-              {/* RESTO */}
-              {pages
-                .filter((p) => p.label !== "Nosotros")
-                .map((page) => (
+                {/* SUB ITEMS */}
+                {subNosotros.map((item) => (
                   <MenuItem
-                    key={page.label}
-                    onClick={handleCloseNavMenu}
+                    key={item.href}
                     component="a"
-                    href={page.href}
+                    href={item.href}
+                    onClick={handleCloseNavMenu}
+                    sx={{ pl: 4 }}
                   >
-                    {page.label}
+                    {item.label}
                   </MenuItem>
                 ))}
-            </Menu>
+
+                {/* RESTO */}
+                {pages
+                  .filter((p) => p.label !== "Nosotros")
+                  .map((page) => (
+                    <MenuItem
+                      key={page.label}
+                      onClick={handleCloseNavMenu}
+                      component="a"
+                      href={page.href}
+                    >
+                      {page.label}
+                    </MenuItem>
+                  ))}
+              </Menu>
+            </Box>
+
           </Box>
+
+
         </Toolbar>
       </Container>
     </AppBar>

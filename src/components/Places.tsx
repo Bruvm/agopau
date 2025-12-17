@@ -22,10 +22,10 @@ export default function PLaces() {
                             <Card sx={{ width: '100% ', backgroundColor: '#AAD3DF' }}>
                                 <CardContent>
                                     <Grid container spacing={3}>
-                                        <Grid size={{ xs: 12, sm: 8 }}>
+                                        <Grid size={{ xs: 12, md: 8 }}>
                                             <Map/>
                                         </Grid>
-                                        <Grid size={{ xs: 12, sm: 4}} display={'flex'} alignItems={'flex-end'}>
+                                        <Grid size={{ xs: 12, md: 4}} mt={{ xs: 3, md: 0}} display={'flex'} alignItems={'flex-end'}>
                                             <Typography variant="h5" fontWeight="bold" gutterBottom>
                                                  Llegamos a todas las provincias de nuestro país, 
                                                  desde la Quiaca a Ushuaia y a nuestros vecinos Chile y Brasil. 

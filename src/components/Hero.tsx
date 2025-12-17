@@ -22,7 +22,7 @@ export default function Hero() {
 
             <Box
                 sx={{
-                    width: { xs: "100%", md: "33.333%" },
+                    width: { xs: "100%", sm: "50%", md: "33.333%" },
                     height: "100%",
                     backgroundColor: "primary.main",
                     position: "relative",
@@ -42,12 +42,8 @@ export default function Hero() {
                     position: "absolute",
                     bottom: 0,
                     left: 0,
-                    width: { xs: "100%", md: "33.333%" },
-                    display: {
-                        xs: "none",
-                        sm: "none",
-                        md: "block"
-                    },
+                    width: { xs: "100%", sm: "50%", md: "33.333%" },
+                    display:"block",
                     zIndex: 10
                 }}
             />
@@ -61,7 +57,11 @@ export default function Hero() {
                         display: "flex",
                         alignItems: "center",
                         p: 0,
-                        pt: '100px'
+                        pt: '100px',
+                        px: {
+                            xs: 5, 
+                            lg: 0
+                        }
                     }}
                 >
                     <Grid container spacing={0} sx={{ mb: '50px' }}>
@@ -73,9 +73,8 @@ export default function Hero() {
                                         fontWeight: 700,
                                         color: "custom.white",
                                         fontSize: {
-                                            xs: "2rem",  
-                                            sm: "2.5rem",
-                                            md: "3rem", 
+                                            xs: "3rem",
+                                            sm: "3rem",
                                             lg: "3.5rem"
                                         },
                                         lineHeight: 1.1
@@ -91,9 +90,8 @@ export default function Hero() {
                                         fontWeight: 700,
                                         color: "custom.white",
                                         fontSize: {
-                                            xs: "2rem", 
-                                            sm: "2.5rem",
-                                            md: "3rem",
+                                            xs: "3rem",
+                                            sm: "3rem",
                                             lg: "3.5rem"
                                         },
                                         lineHeight: 1.1
@@ -109,9 +107,8 @@ export default function Hero() {
                                         fontWeight: 700,
                                         color: "custom.white",
                                         fontSize: {
-                                            xs: "2rem",
-                                            sm: "2.5rem",
-                                            md: "3rem",
+                                            xs: "3rem",
+                                            sm: "3rem",
                                             lg: "3.5rem"
                                         },
                                         lineHeight: 1.1
