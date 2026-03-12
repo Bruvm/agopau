@@ -1,5 +1,17 @@
 import { Box } from "@mui/material";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { keyframes } from "@mui/system";
+
+const whatsappPopIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+`;
 
 export default function WhatsAppButton() {
     return (
@@ -22,15 +34,17 @@ export default function WhatsAppButton() {
                 boxShadow: "0px 4px 12px rgba(0,0,0,0.3)",
                 cursor: "pointer",
                 zIndex: 9999,
-                transition: "all 0.3s ease",
+                animation: `${whatsappPopIn} 380ms ease-out 350ms both`,
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 "&:hover": {
                     transform: "scale(1.1)",
                     boxShadow: "0px 6px 16px rgba(0,0,0,0.35)",
-                }
+                },
             }}
         >
             <WhatsAppIcon
-                style={{ width: 35, height: 35, color: 'white' }}/>
+                style={{ width: 35, height: 35, color: "white" }}
+            />
         </Box>
     );
 }

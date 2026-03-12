@@ -1,6 +1,18 @@
 import React, { useRef, useState } from "react";
-import { Typography, TextField, Button, Box, Container, Grid, Snackbar, Alert, useTheme, useMediaQuery } from "@mui/material";
+import {
+    Typography,
+    TextField,
+    Button,
+    Box,
+    Container,
+    Grid,
+    Snackbar,
+    Alert,
+    useTheme,
+    useMediaQuery,
+} from "@mui/material";
 import emailjs from "emailjs-com";
+import { RevealOnScroll } from "./motion/RevealOnScroll";
 
 const SERVICE_ID = "service_km6xzs1";
 const TEMPLATE_ID = "template_uavffls";
@@ -52,152 +64,180 @@ const Contact = () => {
         <Box
             sx={{
                 width: "100%",
-                pt: '100px',
-                pb: '100px'
+                pt: "100px",
+                pb: "100px",
             }}
-            id='contact'
+            id="contact"
         >
             <Container maxWidth="lg">
                 <Grid container spacing={4} justifyContent="center">
                     <Grid size={{ xs: 12, md: 6 }}>
-                        <Grid container>
-                            <Grid size={{ xs: 12 }}>
-                                <Box display="flex" justifyContent="left">
+                        <RevealOnScroll>
+                            <Grid container>
+                                <Grid size={{ xs: 12 }}>
+                                    <Box display="flex" justifyContent="left">
+                                        <Typography
+                                            variant="h5"
+                                            sx={{
+                                                fontWeight: 700,
+                                                color: "text.primary",
+                                                textAlign: "left",
+                                                fontSize: {
+                                                    xs: "2rem",
+                                                    sm: "2rem",
+                                                    md: "2.5rem",
+                                                },
+                                            }}
+                                        >
+                                            ¿Querés cotizar o
+                                        </Typography>
+                                    </Box>
+                                    <Box display="flex" justifyContent="left">
+                                        <Typography
+                                            variant="h5"
+                                            sx={{
+                                                fontWeight: 700,
+                                                color: "text.primary",
+                                                textAlign: "left",
+                                                fontSize: {
+                                                    xs: "2rem",
+                                                    sm: "2rem",
+                                                    md: "2.5rem",
+                                                },
+                                            }}
+                                        >
+                                            tenés dudas?
+                                        </Typography>
+                                    </Box>
+                                </Grid>
+                                <Grid size={{ xs: 12 }} mt={2}>
                                     <Typography
-                                        variant="h5"
+                                        variant="body1"
                                         sx={{
-                                            fontWeight: 700,
-                                            color: "text.primary",
-                                            textAlign: "left",
                                             fontSize: {
-                                                xs: "2rem",
-                                                sm: "2rem",
-                                                md: "2.5rem",
+                                                xs: "0.9rem",
+                                                sm: "1rem",
+                                                md: "1.1rem",
                                             },
                                         }}
                                     >
-                                        ¿Querés cotizar o
+                                        Estamos para ayudarte, escribinos y uno de nuestros
+                                        asesores te responderá a la brevedad.
                                     </Typography>
-                                </Box>
-                                <Box display="flex" justifyContent="left">
-                                    <Typography
-                                        variant="h5"
-                                        sx={{
-                                            fontWeight: 700,
-                                            color: "text.primary",
-                                            textAlign: "left",
-                                            fontSize: {
-                                                xs: "2rem",
-                                                sm: "2rem",
-                                                md: "2.5rem",
-                                            },
-                                        }}
-                                    >
-                                        tenés dudas?
-                                    </Typography>
-                                </Box>
+                                </Grid>
                             </Grid>
-                            <Grid size={{ xs: 12 }} mt={2}>
-                                <Typography
-                                    variant="body1"
-                                    sx={{
-                                        fontSize: {
-                                            xs: "0.9rem",
-                                            sm: "1rem",
-                                            md: "1.1rem",
-                                        },
-                                    }}
-                                >
-                                    Estamos para ayudarte, escribinos y uno de nuestros asesores te responderá a la brevedad.
-                                </Typography>
-                            </Grid>
-                        </Grid>
-
+                        </RevealOnScroll>
                     </Grid>
 
                     <Grid size={{ xs: 12, md: 6 }}>
-                        <form ref={form} onSubmit={sendEmail}>
-                            <TextField
-                                fullWidth
-                                name="from_name"
-                                label="Nombre"
-                                placeholder="Tu nombre"
-                                margin="normal"
-                                required
-                                size="small"
-                            />
+                        <RevealOnScroll delayMs={80}>
+                            <form ref={form} onSubmit={sendEmail}>
+                                <TextField
+                                    fullWidth
+                                    name="from_name"
+                                    label="Nombre"
+                                    placeholder="Tu nombre"
+                                    margin="normal"
+                                    required
+                                    size="small"
+                                />
 
-                            <TextField
-                                fullWidth
-                                name="reply_to"
-                                label="Email"
-                                placeholder="Ingrese un email de contacto"
-                                margin="normal"
-                                required
-                                size="small"
-                            />
+                                <TextField
+                                    fullWidth
+                                    name="reply_to"
+                                    label="Email"
+                                    placeholder="Ingrese un email de contacto"
+                                    margin="normal"
+                                    required
+                                    size="small"
+                                />
 
-                            <TextField
-                                fullWidth
-                                name="company"
-                                label="Empresa"
-                                placeholder="Ingrese el nombre de tu empresa"
-                                margin="normal"
-                                required
-                                size="small"
-                            />
+                                <TextField
+                                    fullWidth
+                                    name="company"
+                                    label="Empresa"
+                                    placeholder="Ingrese el nombre de tu empresa"
+                                    margin="normal"
+                                    required
+                                    size="small"
+                                />
 
-                            <TextField
-                                fullWidth
-                                name="message"
-                                label="Mensaje"
-                                placeholder="Contanos como podemos ayudarte"
-                                margin="normal"
-                                multiline
-                                rows={5}
-                                required
-                                size="small"
-                            />
-                            <Box display={'flex'} justifyContent={'flex-end'}>
-
-                            
-                                <Button
-                                    type="submit"
-                                    variant="contained"
-                                    disabled={sending}
-                                    size={isMobile ? "small" : "medium"}
-                                    sx={{ mt: 2, py: 1, px: 3, backgroundColor: 'secondary.light', borderRadius: '0px', "&:hover": { backgroundColor: "secondary.main" } }}>
-                                    {sending ? "Enviando..." : "Enviar"}
-                                </Button>
-                            </Box>
-                        </form>
+                                <TextField
+                                    fullWidth
+                                    name="message"
+                                    label="Mensaje"
+                                    placeholder="Contanos como podemos ayudarte"
+                                    margin="normal"
+                                    multiline
+                                    rows={5}
+                                    required
+                                    size="small"
+                                />
+                                <Box display={"flex"} justifyContent={"flex-end"}>
+                                    <Button
+                                        type="submit"
+                                        variant="contained"
+                                        disabled={sending}
+                                        size={isMobile ? "small" : "medium"}
+                                        sx={{
+                                            mt: 2,
+                                            py: 1,
+                                            px: 3,
+                                            backgroundColor: "secondary.light",
+                                            borderRadius: "0px",
+                                            transition:
+                                                "background-color 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out",
+                                            "&:hover": {
+                                                backgroundColor: "secondary.main",
+                                                transform: "translateY(-2px)",
+                                                boxShadow:
+                                                    "0px 10px 20px rgba(0,0,0,0.18)",
+                                            },
+                                        }}
+                                    >
+                                        {sending ? "Enviando..." : "Enviar"}
+                                    </Button>
+                                </Box>
+                            </form>
+                        </RevealOnScroll>
 
                         <Snackbar
                             open={open}
                             autoHideDuration={4000}
                             onClose={() => setOpen(false)}
-                            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                            anchorOrigin={{
+                                vertical: "bottom",
+                                horizontal: "center",
+                            }}
                         >
                             <Alert
                                 onClose={() => setOpen(false)}
                                 severity="success"
                                 sx={{ width: "100%" }}
                             >
-                                Tu mensaje se envió con éxito. Te responderemos pronto.
+                                Tu mensaje se envió con éxito. Te responderemos
+                                pronto.
                             </Alert>
                         </Snackbar>
                         <Snackbar
                             open={error}
                             autoHideDuration={4000}
                             onClose={() => setError(false)}
-                            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                            anchorOrigin={{
+                                vertical: "bottom",
+                                horizontal: "center",
+                            }}
                         >
-                            <Alert onClose={() => setError(false)} severity="error" sx={{ width: "100%" }}>
-                                Ocurrió un error al enviar el mensaje. Intentalo de nuevo.
+                            <Alert
+                                onClose={() => setError(false)}
+                                severity="error"
+                                sx={{ width: "100%" }}
+                            >
+                                Ocurrió un error al enviar el mensaje. Intentalo
+                                de nuevo.
                             </Alert>
                         </Snackbar>
                     </Grid>
-
                 </Grid>
             </Container>
         </Box>
