@@ -8,7 +8,7 @@ const customIcon = new L.Icon({
   popupAnchor: [0, -32],
 });
 
-const provinciasArgentinas: { nombre: string; coords: LatLngTuple }[] = [
+const places: { nombre: string; coords: LatLngTuple }[] = [
   { nombre: "Buenos Aires (La Plata)", coords: [-34.9214, -57.9544] },
   { nombre: "Catamarca (San Fernando del Valle de Catamarca)", coords: [-28.4696, -65.7852] },
   { nombre: "Chaco (Resistencia)", coords: [-27.4519, -58.9867] },
@@ -32,6 +32,9 @@ const provinciasArgentinas: { nombre: string; coords: LatLngTuple }[] = [
   { nombre: "Santiago del Estero (Santiago del Estero)", coords: [-27.7834, -64.2642] },
   { nombre: "Tierra del Fuego (Ushuaia)", coords: [-54.8019, -68.3029] },
   { nombre: "Tucumán (San Miguel de Tucumán)", coords: [-26.8241, -65.2226] },
+  { nombre: "Chile (Santiago)", coords: [-33.4489, -70.6693] },
+  { nombre: "Paraguay (Asunción)", coords: [-25.2637, -57.5759] },
+  { nombre: "Brasil (Brasilia)", coords: [-15.7939, -47.8828] },
 ];
 
 
@@ -44,7 +47,7 @@ export default function MyMap() {
       style={{ height: "500px", width: "100%" }}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {provinciasArgentinas.map((prov, idx) => (
+      {places.map((prov, idx) => (
         <Marker key={idx} position={prov.coords} icon={customIcon}>
           <Popup>{prov.nombre}</Popup>
         </Marker>

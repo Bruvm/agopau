@@ -54,7 +54,7 @@ export default function PLaces() {
                                             <RevealOnScroll delayMs={140}>
                                                 <Typography variant="h5" fontWeight="bold" gutterBottom>
                                                     Llegamos a todas las provincias de nuestro país, desde la
-                                                    Quiaca a Ushuaia y a nuestros vecinos Chile y Brasil.
+                                                    Quiaca a Ushuaia y a nuestros vecinos Chile, Paraguay y Brasil.
                                                 </Typography>
                                             </RevealOnScroll>
                                         </Grid>
