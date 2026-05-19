@@ -1,6 +1,6 @@
 import { Box, Button, Container, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import hero from "../assets/img/hero.jpg";
+import hero from "../assets/img/hero.jpeg";
 import arrows from "../assets/img/arrows.png";
 import Navbar from "./Navbar";
 import { keyframes } from "@mui/system";
@@ -30,6 +30,13 @@ export default function Hero() {
         backgroundPosition: "center",
         position: "relative",
         overflow: "hidden",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(0,0,0,0.45)",
+          zIndex: 1,
+        },
       }}
     >
       <Box
@@ -73,6 +80,7 @@ export default function Hero() {
             pt: "100px",
             px: {
               xs: 5,
+              md: 0,
               lg: 0,
             },
           }}
