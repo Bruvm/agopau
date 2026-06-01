@@ -42,7 +42,7 @@ export default function Loads() {
   const currentGroup = GROUPS[groupIndex];
 
   return (
-    <RevealOnScroll id={"services"}>
+    <RevealOnScroll id={"services"} sx={{ scrollMarginTop: 80 }}>
       <Container sx={{ position: "relative", my: "150px" }}>
         <Grid
           container
