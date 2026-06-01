@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
     return (
         <Box
             component="a"
-            href="https://wa.me/543534256029"
+            href="https://wa.me/543534129463"
             target="_blank"
             rel="noopener noreferrer"
             sx={{

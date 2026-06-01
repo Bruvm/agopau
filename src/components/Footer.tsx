@@ -19,13 +19,13 @@ export default function Footer() {
     const contacts = [
         {
             icon: <LocalPhoneIcon />,
-            text: '+54 353 4256029',
-            href: 'tel:+543534256029'
+            text: '+54 353 4129463',
+            href: 'tel:+543534129463'
         },
         {
             icon: <LocalPhoneIcon />,
-            text: '+54 353 4267149',
-            href: 'tel:+543534267149'
+            text: '+54 353 5646231',
+            href: 'tel:+543535646231'
         },
         {
             icon: <EmailIcon />,
