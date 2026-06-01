@@ -37,7 +37,7 @@ export default function PLaces() {
                 <Container maxWidth="lg">
                     <Grid container spacing={0} sx={{ position: "relative", zIndex: 1 }}>
                         <Grid size={{ xs: 12 }} sx={{ mt: "150px", mb: "50px" }}>
-                            <Card sx={{ width: "100% ", backgroundColor: "#AAD3DF" }}>
+                            <Card sx={{ width: "100%", backgroundColor: "#DBEAFE" }}>
                                 <CardContent>
                                     <Grid container spacing={3}>
                                         <Grid size={{ xs: 12, md: 8 }}>
@@ -52,7 +52,12 @@ export default function PLaces() {
                                             alignItems={"flex-end"}
                                         >
                                             <RevealOnScroll delayMs={140}>
-                                                <Typography variant="h5" fontWeight="bold" gutterBottom>
+                                                <Typography
+                                                    variant="h5"
+                                                    fontWeight="bold"
+                                                    gutterBottom
+                                                    sx={{ letterSpacing: "-0.02em" }}
+                                                >
                                                     Llegamos a todas las provincias de nuestro país, desde la
                                                     Quiaca a Ushuaia y a nuestros vecinos Chile, Paraguay y Brasil.
                                                 </Typography>

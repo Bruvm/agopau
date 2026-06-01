@@ -1,6 +1,6 @@
 import { Box, Button, Container, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import hero from "../assets/img/hero.jpeg";
+import hero from "../assets/img/hero.png";
 import arrows from "../assets/img/arrows.png";
 import Navbar from "./Navbar";
 import { keyframes } from "@mui/system";
@@ -25,20 +25,38 @@ export default function Hero() {
       sx={{
         width: "100%",
         height: "100vh",
-        backgroundImage: `url(${hero})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         position: "relative",
         overflow: "hidden",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          inset: 0,
-          backgroundColor: "rgba(0,0,0,0.45)",
-          zIndex: 1,
-        },
       }}
     >
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: { xs: "0%", sm: "50%", md: "66.667%" },
+          height: "100%",
+          backgroundImage: `url(${hero})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          zIndex: 0,
+          animation: `heroBackgroundZoom 20s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+          willChange: "transform",
+        }}
+      />
+
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: { xs: "0%", sm: "50%", md: "66.667%" },
+          height: "100%",
+          backgroundColor: "rgba(0,0,0,0.45)",
+          zIndex: 1,
+        }}
+      />
+
       <Box
         sx={{
           width: { xs: "100%", sm: "50%", md: "33.333%" },

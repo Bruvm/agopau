@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useCallback } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
@@ -11,6 +10,7 @@ import truck11 from '../assets/img/trucks/truck-11.jpg'
 import truck12 from '../assets/img/trucks/truck-12.jpg'
 import truck13 from '../assets/img/trucks/truck-13.jpg'
 import { RevealOnScroll } from "./motion/RevealOnScroll";
+import { EASE_PREMIUM } from "../theme";
 
 const IMAGES = [
   truck5, truck10, truck11, truck13,
@@ -52,7 +52,7 @@ export default function Loads() {
         >
           <Grid size={{ xs: 12 }} pr={1} sx={{ textAlign: "center" }}>
             <RevealOnScroll delayMs={40}>
-              <Typography variant="h5" fontWeight="bold" gutterBottom mb={2}>
+              <Typography variant="h5" fontWeight="bold" gutterBottom mb={2} sx={{ letterSpacing: "-0.02em" }}>
                 Tipo de cargas
               </Typography>
             </RevealOnScroll>
@@ -90,9 +90,14 @@ export default function Loads() {
             >
               <Box
                 sx={{
+                  position: "relative",
                   height: 300,
                   width: "100%",
                   overflow: "hidden",
+                  cursor: "pointer",
+                  "&:hover .loads-overlay": {
+                    opacity: 1,
+                  },
                 }}
               >
                 <Box
@@ -102,14 +107,25 @@ export default function Loads() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    transition:
-                      "transform 0.4s ease, filter 0.4s ease",
+                    transition: `transform 0.5s ${EASE_PREMIUM}, filter 0.5s ${EASE_PREMIUM}`,
                     filter: "brightness(0.96)",
-                    animation: `${fadeIn} 0.5s ease`,
+                    animation: `${fadeIn} 0.5s ease ${idx * 80}ms both`,
                     "&:hover": {
                       transform: "scale(1.05)",
                       filter: "brightness(1)",
                     },
+                  }}
+                />
+                <Box
+                  className="loads-overlay"
+                  sx={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(to top, rgba(30,47,110,0.3), transparent)",
+                    opacity: 0,
+                    transition: `opacity 0.4s ${EASE_PREMIUM}`,
+                    pointerEvents: "none",
+                    zIndex: 1,
                   }}
                 />
               </Box>

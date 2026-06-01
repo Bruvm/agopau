@@ -19,16 +19,17 @@ const theme = createTheme({
     primary: {
       main: "#1E2F6E",
       light: "#3C5BA9",
+      dark: "#151D42",
     },
     secondary: {
       main: "#D62828",
     },
     background: {
-      default: "#F5F5F5",
+      default: "#FAFAFA",
       paper: "#E5E9F4",
     },
     text: {
-      primary: "#333333",
+      primary: "#1A1A2E",
       secondary: "#666666",
     },
     custom: {
@@ -40,5 +41,6 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export const EASE_PREMIUM = "cubic-bezier(0.16, 1, 0.3, 1)";
 
+export default theme;

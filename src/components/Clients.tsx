@@ -19,6 +19,7 @@ import saputo from "../assets/img/clientes/saputo.png";
 import sobreroycagnolo from "../assets/img/clientes/sobreroycagnolo.png";
 import soychu from "../assets/img/clientes/soychu.png";
 import { RevealOnScroll } from "./motion/RevealOnScroll";
+import { EASE_PREMIUM } from "../theme";
 
 const CLIENT_LOGOS = [
   { src: arcor, alt: "Arcor" },
@@ -77,26 +78,39 @@ export default function Clients() {
               justifyContent="center"
               sx={{ mb: { xs: 3, md: 4 } }}
             >
-              <RevealOnScroll delayMs={80 + idx * 60}>
+              <RevealOnScroll delayMs={40 + idx * 30}>
                 <Box
-                  component="img"
-                  src={src}
-                  alt={alt}
-                  loading="lazy"
                   sx={{
-                    height: 70,
-                    width: "auto",
-                    maxWidth: 120,
-                    objectFit: "contain",
-                    filter: "grayscale(100%)",
-                    transition:
-                      "filter 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    p: 2,
+                    borderRadius: "8px",
+                    transition: `all 400ms ${EASE_PREMIUM}`,
                     "&:hover": {
-                      filter: "grayscale(0%)",
-                      transform: "translateY(-2px) scale(1.05)",
+                      backgroundColor: "rgba(30, 47, 110, 0.04)",
                     },
                   }}
-                />
+                >
+                  <Box
+                    component="img"
+                    src={src}
+                    alt={alt}
+                    loading="lazy"
+                    sx={{
+                      height: 70,
+                      width: "auto",
+                      maxWidth: 120,
+                      objectFit: "contain",
+                      filter: "grayscale(100%)",
+                      transition: `filter 0.5s ${EASE_PREMIUM}, transform 0.4s ${EASE_PREMIUM}`,
+                      "&:hover": {
+                        filter: "grayscale(0%)",
+                        transform: "translateY(-2px) scale(1.05)",
+                      },
+                    }}
+                  />
+                </Box>
               </RevealOnScroll>
             </Grid>
           ))}

@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import logoOne from "../assets/img/AGOSPAU.png";
 import logoTwo from "../assets/img/AGOSPAUSA.png";
+import { EASE_PREMIUM } from "../theme";
 
 const pages = [
   { label: "Nosotros", href: "#nosotros" },
@@ -34,6 +35,8 @@ export default function Navbar() {
 
   const [activeSection, setActiveSection] = React.useState("/");
 
+  const [scrolled, setScrolled] = React.useState(false);
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -46,7 +49,12 @@ export default function Navbar() {
 
   const handleCloseNosotros = () => setAnchorElNosotros(null);
 
-  // Detectar sección activa al scrollear
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   React.useEffect(() => {
     const sectionIds = [
       ...pages.map((p) => p.href.replace("#", "")),
@@ -80,9 +88,18 @@ export default function Navbar() {
       position="fixed"
       elevation={0}
       sx={{
-        backgroundColor: "background.paper",
+        backgroundColor: scrolled
+          ? "rgba(229, 233, 244, 0.85)"
+          : "rgba(229, 233, 244, 1)",
+        backdropFilter: "blur(12px)",
         color: "text.primary",
-        borderBottom: "1px solid #eee"
+        borderBottom: scrolled
+          ? "1px solid rgba(0,0,0,0.06)"
+          : "1px solid rgba(0,0,0,0.04)",
+        boxShadow: scrolled
+          ? "0 1px 3px rgba(0,0,0,0.06)"
+          : "none",
+        transition: `background-color 300ms ${EASE_PREMIUM}, border-bottom 300ms ${EASE_PREMIUM}, box-shadow 300ms ${EASE_PREMIUM}`,
       }}
     >
       <Container maxWidth="xl">
@@ -127,18 +144,16 @@ export default function Navbar() {
                   color:
                     activeSection === "nosotros" ||
                       subNosotros.some(s => s.href.replace("#", "") === activeSection)
-                      ? "#1E2F6E"
+                      ? "primary.main"
                       : "text.primary",
                   position: "relative",
                   textDecoration: "none",
-                  transition: "all 0.3s ease",
-
+                  transition: `all 300ms ${EASE_PREMIUM}`,
                   "&:hover": {
                     backgroundColor: "transparent",
-                    color: "#1E2F6E",
-                    transform: "translateY(-3px)",
+                    color: "primary.main",
+                    transform: "translateY(-2px)",
                   },
-
                   "&::before": {
                     content: '""',
                     position: "absolute",
@@ -147,14 +162,15 @@ export default function Navbar() {
                     left: 0,
                     right: 0,
                     height: "5px",
-                    backgroundColor: "#1E2F6E",
-                    transform: activeSection === "nosotros" ||
+                    backgroundColor: "primary.main",
+                    transform:
+                      activeSection === "nosotros" ||
                       subNosotros.some(s => s.href.replace("#", "") === activeSection)
-                      ? "scaleY(1)" : "scaleY(0)",
+                        ? "scaleY(1)"
+                        : "scaleY(0)",
                     transformOrigin: "bottom",
-                    transition: "transform 0.3s ease",
+                    transition: `transform 300ms ${EASE_PREMIUM}`,
                   },
-
                   "&:hover::before": {
                     transform: "scaleY(1)",
                   },
@@ -199,17 +215,15 @@ export default function Navbar() {
                       fontFamily: "Montserrat, sans-serif",
                       textTransform: "none",
                       fontWeight: isActive ? 700 : 600,
-                      color: isActive ? "#1E2F6E" : "text.primary",
+                      color: isActive ? "primary.main" : "text.primary",
                       position: "relative",
                       textDecoration: "none",
-                      transition: "all 0.3s ease",
-
+                      transition: `all 300ms ${EASE_PREMIUM}`,
                       "&:hover": {
                         backgroundColor: "transparent",
-                        color: "#1E2F6E",
-                        transform: "translateY(-3px)",
+                        color: "primary.main",
+                        transform: "translateY(-2px)",
                       },
-
                       "&::before": {
                         content: '""',
                         position: "absolute",
@@ -218,12 +232,11 @@ export default function Navbar() {
                         left: 0,
                         right: 0,
                         height: "5px",
-                        backgroundColor: "#1E2F6E",
+                        backgroundColor: "primary.main",
                         transform: isActive ? "scaleY(1)" : "scaleY(0)",
                         transformOrigin: "bottom",
-                        transition: "transform 0.3s ease",
+                        transition: `transform 300ms ${EASE_PREMIUM}`,
                       },
-
                       "&:hover::before": {
                         transform: "scaleY(1)",
                       },
@@ -236,7 +249,6 @@ export default function Navbar() {
           </Box>
 
           {/* MOBILE MENU */}
-          {/* MOBILE HEADER */}
           <Box
             sx={{
               display: { xs: "flex", md: "none" },
@@ -245,7 +257,6 @@ export default function Navbar() {
               width: "100%",
             }}
           >
-            {/* MOBILE HEADER */}
             <Box
               sx={{
                 display: { xs: "flex", md: "none" },
@@ -254,7 +265,6 @@ export default function Navbar() {
                 width: "100%",
               }}
             >
-
               {/* LOGOS IZQUIERDA */}
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <Box component="img" src={logoOne} sx={{ height: 26 }} />
@@ -265,7 +275,6 @@ export default function Navbar() {
               <IconButton onClick={handleOpenNavMenu}>
                 <MenuIcon />
               </IconButton>
-
 
               {/* MENU */}
               <Menu
@@ -313,9 +322,7 @@ export default function Navbar() {
                   ))}
               </Menu>
             </Box>
-
           </Box>
-
 
         </Toolbar>
       </Container>

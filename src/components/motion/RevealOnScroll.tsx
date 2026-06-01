@@ -13,9 +13,10 @@ export function RevealOnScroll({ children, delayMs = 0, sx, ...boxProps }: Revea
       ref={ref}
       sx={{
         opacity: isInView ? 1 : 0,
-        transform: isInView ? "translateY(0)" : "translateY(24px)",
-        transition: `opacity 400ms ease-out ${delayMs}ms, transform 400ms ease-out ${delayMs}ms`,
-        willChange: "opacity, transform",
+        transform: isInView ? "translateY(0) scale(1)" : "translateY(40px) scale(0.98)",
+        filter: isInView ? "blur(0)" : "blur(4px)",
+        transition: `opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms, filter 700ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
+        willChange: "opacity, transform, filter",
         ...sx,
       }}
       {...boxProps}
@@ -24,4 +25,3 @@ export function RevealOnScroll({ children, delayMs = 0, sx, ...boxProps }: Revea
     </Box>
   );
 }
-

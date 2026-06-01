@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Box,
   Container,
@@ -9,6 +9,7 @@ import {
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import img from "../assets/img/img.png";
 import { RevealOnScroll } from "./motion/RevealOnScroll";
+import { EASE_PREMIUM } from "../theme";
 
 const images = [
   [img, img],
@@ -19,15 +20,20 @@ const images = [
 export default function AboutUs() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
+  }, []);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActiveIndex((prev) =>
       prev === images.length - 1 ? 0 : prev + 1
     );
-  };
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(handleNext, 6000);
+    return () => clearInterval(timer);
+  }, [handleNext]);
 
   return (
     <RevealOnScroll id="about">
@@ -40,7 +46,12 @@ export default function AboutUs() {
         >
           <Grid size={{ xs: 12, md: 4 }} pr={1} mb={{ sm: 2, md: 0 }}>
             <RevealOnScroll delayMs={50}>
-              <Typography variant="h5" fontWeight="bold" gutterBottom>
+              <Typography
+                variant="h5"
+                fontWeight="bold"
+                gutterBottom
+                sx={{ letterSpacing: "-0.02em" }}
+              >
                 Sobre nosotros
               </Typography>
             </RevealOnScroll>
@@ -65,8 +76,7 @@ export default function AboutUs() {
                 <Box
                   sx={{
                     display: "flex",
-                    transition:
-                      "transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1)",
+                    transition: `transform 600ms cubic-bezier(0.65, 0, 0.35, 1)`,
                     transform: `translateX(-${activeIndex * 100}%)`,
                     height: "300px",
                   }}
@@ -90,8 +100,7 @@ export default function AboutUs() {
                             width: "50%",
                             px: 1,
                             objectFit: "cover",
-                            transition:
-                              "transform 400ms ease-out, box-shadow 400ms ease-out",
+                            transition: `transform 400ms ${EASE_PREMIUM}, box-shadow 400ms ${EASE_PREMIUM}`,
                             transform:
                               idx === activeIndex ? "scale(1.02)" : "scale(1)",
                             boxShadow:
@@ -105,6 +114,37 @@ export default function AboutUs() {
                   ))}
                 </Box>
               </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: 1.5,
+                  mt: 2,
+                }}
+              >
+                {images.map((_, idx) => (
+                  <Box
+                    key={idx}
+                    onClick={() => setActiveIndex(idx)}
+                    sx={{
+                      width: idx === activeIndex ? 24 : 8,
+                      height: 8,
+                      borderRadius: "4px",
+                      backgroundColor:
+                        idx === activeIndex
+                          ? "primary.main"
+                          : "rgba(0,0,0,0.15)",
+                      cursor: "pointer",
+                      transition: `all 400ms ${EASE_PREMIUM}`,
+                      "&:hover": {
+                        backgroundColor:
+                          idx === activeIndex ? "primary.main" : "primary.light",
+                      },
+                    }}
+                  />
+                ))}
+              </Box>
             </RevealOnScroll>
           </Grid>
         </Grid>
@@ -113,10 +153,7 @@ export default function AboutUs() {
           onClick={handlePrev}
           sx={{
             position: "absolute",
-            top: {
-              xs: "65%",
-              md: "50%",
-            },
+            top: { xs: "65%", md: "50%" },
             left: 0,
             transform: "translateY(-50%)",
             bgcolor: "secondary.main",
@@ -127,12 +164,15 @@ export default function AboutUs() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            transition:
-              "background-color 200ms ease-out, transform 200ms ease-out",
+            transition: `background-color 200ms ${EASE_PREMIUM}, transform 200ms ${EASE_PREMIUM}`,
             "&:hover": {
               backgroundColor: "secondary.light",
-              transform: "translateY(-50%) translateX(-2px)",
+              transform: "translateY(-50%) translateX(-3px)",
             },
+            "&:active": {
+              transform: "translateY(-50%) scale(0.95)",
+            },
+            zIndex: 2,
           }}
         >
           <ArrowForwardIosIcon
@@ -145,10 +185,7 @@ export default function AboutUs() {
           onClick={handleNext}
           sx={{
             position: "absolute",
-            top: {
-              xs: "65%",
-              md: "50%",
-            },
+            top: { xs: "65%", md: "50%" },
             right: 0,
             transform: "translateY(-50%)",
             bgcolor: "secondary.main",
@@ -159,12 +196,15 @@ export default function AboutUs() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            transition:
-              "background-color 200ms ease-out, transform 200ms ease-out",
+            transition: `background-color 200ms ${EASE_PREMIUM}, transform 200ms ${EASE_PREMIUM}`,
             "&:hover": {
               backgroundColor: "secondary.light",
-              transform: "translateY(-50%) translateX(2px)",
+              transform: "translateY(-50%) translateX(3px)",
             },
+            "&:active": {
+              transform: "translateY(-50%) scale(0.95)",
+            },
+            zIndex: 2,
           }}
         >
           <ArrowForwardIosIcon fontSize="small" />

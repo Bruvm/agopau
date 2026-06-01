@@ -12,12 +12,13 @@ import {
     useMediaQuery,
 } from "@mui/material";
 import emailjs from "emailjs-com";
+import SendIcon from "@mui/icons-material/Send";
 import { RevealOnScroll } from "./motion/RevealOnScroll";
+import { EASE_PREMIUM } from "../theme";
 
 const SERVICE_ID = "service_km6xzs1";
 const TEMPLATE_ID = "template_uavffls";
 const PUBLIC_KEY = "XBUfeh_WPdM0TFIhx";
-
 
 const Contact = () => {
     const theme = useTheme();
@@ -39,28 +40,23 @@ const Contact = () => {
                     setSent(true);
                     setSending(false);
                     form.current?.reset();
+                    setOpen(true);
                 })
                 .catch((err) => {
                     console.error("EmailJS error:", err);
                     setSending(false);
                     setError(true);
-
+                    setOpen(true);
                 });
-
-            if (form.current) {
-                form.current.reset();
-            }
-
-            setOpen(true);
         } catch (error) {
             console.error("Error enviando el email:", error);
-        } finally {
             setSending(false);
+            setError(true);
+            setOpen(true);
         }
     };
 
     return (
-
         <Box
             sx={{
                 width: "100%",
@@ -87,6 +83,7 @@ const Contact = () => {
                                                     sm: "2rem",
                                                     md: "2.5rem",
                                                 },
+                                                letterSpacing: "-0.02em",
                                             }}
                                         >
                                             ¿Querés cotizar o
@@ -104,6 +101,7 @@ const Contact = () => {
                                                     sm: "2rem",
                                                     md: "2.5rem",
                                                 },
+                                                letterSpacing: "-0.02em",
                                             }}
                                         >
                                             tenés dudas?
@@ -132,72 +130,123 @@ const Contact = () => {
                     <Grid size={{ xs: 12, md: 6 }}>
                         <RevealOnScroll delayMs={80}>
                             <form ref={form} onSubmit={sendEmail}>
-                                <TextField
-                                    fullWidth
-                                    name="from_name"
-                                    label="Nombre"
-                                    placeholder="Tu nombre"
-                                    margin="normal"
-                                    required
-                                    size="small"
-                                />
-
-                                <TextField
-                                    fullWidth
-                                    name="reply_to"
-                                    label="Email"
-                                    placeholder="Ingrese un email de contacto"
-                                    margin="normal"
-                                    required
-                                    size="small"
-                                />
-
-                                <TextField
-                                    fullWidth
-                                    name="company"
-                                    label="Empresa"
-                                    placeholder="Ingrese el nombre de tu empresa"
-                                    margin="normal"
-                                    required
-                                    size="small"
-                                />
-
-                                <TextField
-                                    fullWidth
-                                    name="message"
-                                    label="Mensaje"
-                                    placeholder="Contanos como podemos ayudarte"
-                                    margin="normal"
-                                    multiline
-                                    rows={5}
-                                    required
-                                    size="small"
-                                />
-                                <Box display={"flex"} justifyContent={"flex-end"}>
-                                    <Button
-                                        type="submit"
-                                        variant="contained"
-                                        disabled={sending}
-                                        size={isMobile ? "small" : "medium"}
+                                <RevealOnScroll delayMs={100}>
+                                    <TextField
+                                        fullWidth
+                                        name="from_name"
+                                        label="Nombre"
+                                        placeholder="Tu nombre"
+                                        margin="normal"
+                                        required
+                                        size="small"
                                         sx={{
-                                            mt: 2,
-                                            py: 1,
-                                            px: 3,
-                                            backgroundColor: "secondary.light",
-                                            borderRadius: "0px",
-                                            transition:
-                                                "background-color 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out",
-                                            "&:hover": {
-                                                backgroundColor: "secondary.main",
-                                                transform: "translateY(-2px)",
-                                                boxShadow:
-                                                    "0px 10px 20px rgba(0,0,0,0.18)",
+                                            "& .MuiOutlinedInput-root": {
+                                                transition: `box-shadow 200ms ${EASE_PREMIUM}, border-color 200ms ${EASE_PREMIUM}`,
+                                                "&.Mui-focused": {
+                                                    boxShadow: "0 0 0 2px rgba(30, 47, 110, 0.12)",
+                                                },
                                             },
                                         }}
-                                    >
-                                        {sending ? "Enviando..." : "Enviar"}
-                                    </Button>
-                                </Box>
+                                    />
+                                </RevealOnScroll>
+
+                                <RevealOnScroll delayMs={180}>
+                                    <TextField
+                                        fullWidth
+                                        name="reply_to"
+                                        label="Email"
+                                        placeholder="Ingrese un email de contacto"
+                                        margin="normal"
+                                        required
+                                        size="small"
+                                        sx={{
+                                            "& .MuiOutlinedInput-root": {
+                                                transition: `box-shadow 200ms ${EASE_PREMIUM}, border-color 200ms ${EASE_PREMIUM}`,
+                                                "&.Mui-focused": {
+                                                    boxShadow: "0 0 0 2px rgba(30, 47, 110, 0.12)",
+                                                },
+                                            },
+                                        }}
+                                    />
+                                </RevealOnScroll>
+
+                                <RevealOnScroll delayMs={260}>
+                                    <TextField
+                                        fullWidth
+                                        name="company"
+                                        label="Empresa"
+                                        placeholder="Ingrese el nombre de tu empresa"
+                                        margin="normal"
+                                        required
+                                        size="small"
+                                        sx={{
+                                            "& .MuiOutlinedInput-root": {
+                                                transition: `box-shadow 200ms ${EASE_PREMIUM}, border-color 200ms ${EASE_PREMIUM}`,
+                                                "&.Mui-focused": {
+                                                    boxShadow: "0 0 0 2px rgba(30, 47, 110, 0.12)",
+                                                },
+                                            },
+                                        }}
+                                    />
+                                </RevealOnScroll>
+
+                                <RevealOnScroll delayMs={340}>
+                                    <TextField
+                                        fullWidth
+                                        name="message"
+                                        label="Mensaje"
+                                        placeholder="Contanos como podemos ayudarte"
+                                        margin="normal"
+                                        multiline
+                                        rows={5}
+                                        required
+                                        size="small"
+                                        sx={{
+                                            "& .MuiOutlinedInput-root": {
+                                                transition: `box-shadow 200ms ${EASE_PREMIUM}, border-color 200ms ${EASE_PREMIUM}`,
+                                                "&.Mui-focused": {
+                                                    boxShadow: "0 0 0 2px rgba(30, 47, 110, 0.12)",
+                                                },
+                                            },
+                                        }}
+                                    />
+                                </RevealOnScroll>
+
+                                <RevealOnScroll delayMs={420}>
+                                    <Box display={"flex"} justifyContent={"flex-end"}>
+                                        <Button
+                                            type="submit"
+                                            variant="contained"
+                                            disabled={sending}
+                                            size={isMobile ? "small" : "medium"}
+                                            endIcon={<SendIcon />}
+                                            sx={{
+                                                mt: 2,
+                                                py: 1,
+                                                px: 3,
+                                                backgroundColor: "secondary.light",
+                                                borderRadius: "0px",
+                                                transition: `background-color 200ms ${EASE_PREMIUM}, transform 200ms ${EASE_PREMIUM}, box-shadow 200ms ${EASE_PREMIUM}`,
+                                                "&:hover": {
+                                                    backgroundColor: "secondary.main",
+                                                    transform: "translateY(-2px)",
+                                                    boxShadow: "0px 10px 20px rgba(0,0,0,0.18)",
+                                                },
+                                                "&:active": {
+                                                    transform: "scale(0.98)",
+                                                },
+                                                "& .MuiButton-endIcon": {
+                                                    transition: `transform 200ms ${EASE_PREMIUM}`,
+                                                },
+                                                "&:hover .MuiButton-endIcon": {
+                                                    transform: "translateX(3px)",
+                                                },
+                                            }}
+                                        >
+                                            {sending ? "Enviando..." : "Enviar"}
+                                        </Button>
+                                    </Box>
+                                </RevealOnScroll>
                             </form>
                         </RevealOnScroll>
 
@@ -212,29 +261,12 @@ const Contact = () => {
                         >
                             <Alert
                                 onClose={() => setOpen(false)}
-                                severity="success"
+                                severity={error ? "error" : "success"}
                                 sx={{ width: "100%" }}
                             >
-                                Tu mensaje se envió con éxito. Te responderemos
-                                pronto.
-                            </Alert>
-                        </Snackbar>
-                        <Snackbar
-                            open={error}
-                            autoHideDuration={4000}
-                            onClose={() => setError(false)}
-                            anchorOrigin={{
-                                vertical: "bottom",
-                                horizontal: "center",
-                            }}
-                        >
-                            <Alert
-                                onClose={() => setError(false)}
-                                severity="error"
-                                sx={{ width: "100%" }}
-                            >
-                                Ocurrió un error al enviar el mensaje. Intentalo
-                                de nuevo.
+                                {error
+                                    ? "Ocurrió un error al enviar el mensaje. Intentalo de nuevo."
+                                    : "Tu mensaje se envió con éxito. Te responderemos pronto."}
                             </Alert>
                         </Snackbar>
                     </Grid>
