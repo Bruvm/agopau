@@ -211,7 +211,7 @@ export default function History() {
                                             </RevealOnScroll>
                                             <RevealOnScroll delayMs={220}>
                                                 <Typography mb={3}>
-                                                    Somos una especializada en el transporte de cargas refrigeradas y
+                                                    Somos una empresa especializada en el transporte de cargas refrigeradas y
                                                     congeladas con una logística atenta a las demandas de nuestros
                                                     clientes, organizada sobre la base de la satisfacción y la
                                                     confianza de quienes nos eligen.
