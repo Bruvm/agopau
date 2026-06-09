@@ -115,7 +115,7 @@ export default function Hero() {
               <Grid size={{ xs: 12 }}>
                 <Box mb={"10px"}>
                   <Typography
-                    variant="h2"
+                    variant="h1"
                     sx={{
                       fontWeight: 700,
                       color: "custom.white",
@@ -132,7 +132,7 @@ export default function Hero() {
                 </Box>
                 <Box mb={"10px"}>
                   <Typography
-                    variant="h2"
+                    variant="h1"
                     sx={{
                       fontWeight: 700,
                       color: "custom.white",
@@ -149,7 +149,7 @@ export default function Hero() {
                 </Box>
                 <Box mb={"10px"}>
                   <Typography
-                    variant="h2"
+                    variant="h1"
                     sx={{
                       fontWeight: 700,
                       color: "custom.white",
