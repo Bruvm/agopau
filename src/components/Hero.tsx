@@ -30,15 +30,18 @@ export default function Hero() {
       }}
     >
       <Box
+        component="img"
+        src={hero}
+        alt="Fondo de camión de carga"
+        fetchPriority="high"
         sx={{
           position: "absolute",
           top: 0,
           right: 0,
           width: { xs: "0%", sm: "50%", md: "66.667%" },
           height: "100%",
-          backgroundImage: `url(${hero})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          objectFit: "cover",
+          objectPosition: "center",
           zIndex: 0,
           animation: `heroBackgroundZoom 20s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
           willChange: "transform",

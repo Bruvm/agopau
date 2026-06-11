@@ -122,8 +122,8 @@ export default function Navbar() {
               textDecoration: "none"
             }}
           >
-            <Box component="img" src={logoOne} sx={{ height: 25, mr: 1 }} />
-            <Box component="img" src={logoTwo} sx={{ height: 25 }} />
+            <Box component="img" src={logoOne} fetchPriority="high" sx={{ height: 25, mr: 1 }} />
+            <Box component="img" src={logoTwo} fetchPriority="high" sx={{ height: 25 }} />
           </Box>
 
           {/* ITEMS desktop */}
@@ -267,8 +267,8 @@ export default function Navbar() {
             >
               {/* LOGOS IZQUIERDA */}
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <Box component="img" src={logoOne} sx={{ height: 26 }} />
-                <Box component="img" src={logoTwo} sx={{ height: 26 }} />
+                <Box component="img" src={logoOne} fetchPriority="high" sx={{ height: 26 }} />
+                <Box component="img" src={logoTwo} fetchPriority="high" sx={{ height: 26 }} />
               </Box>
 
               {/* MENU DERECHA */}
