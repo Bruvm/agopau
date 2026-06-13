@@ -126,6 +126,7 @@ export default function Hero() {
                         xs: "3rem",
                         sm: "3rem",
                         lg: "3.5rem",
+                        xl: "4.5rem",
                       },
                       lineHeight: 1.1,
                     }}
@@ -143,6 +144,7 @@ export default function Hero() {
                         xs: "3rem",
                         sm: "3rem",
                         lg: "3.5rem",
+                        xl: "4.5rem",
                       },
                       lineHeight: 1.1,
                     }}
@@ -160,6 +162,7 @@ export default function Hero() {
                         xs: "3rem",
                         sm: "3rem",
                         lg: "3.5rem",
+                        xl: "4.5rem",
                       },
                       lineHeight: 1.1,
                     }}

@@ -59,7 +59,7 @@ export default function PLaces() {
                                                     sx={{ letterSpacing: "-0.02em" }}
                                                 >
                                                     Llegamos a todas las provincias de nuestro país, desde la
-                                                    Quiaca a Ushuaia y a nuestros vecinos Chile, Paraguay y Brasil.
+                                                    Quiaca a Ushuaia y a nuestros paises vecinos Chile, Paraguay y Brasil.
                                                 </Typography>
                                             </RevealOnScroll>
                                         </Grid>
