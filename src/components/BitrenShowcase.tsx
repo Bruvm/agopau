@@ -8,7 +8,7 @@ export default function BitrenShowcase() {
     <Container id={"bitren"} maxWidth="lg" sx={{ scrollMarginTop: 80, mb: "150px" }}>
       <RevealOnScroll delayMs={40}>
         <Grid container spacing={0} sx={{ position: "relative", zIndex: 1 }}>
-          <Grid size={{ xs: 12 }} sx={{ mt: "150px", mb: "50px" }}>
+          <Grid size={{ xs: 12 }} sx={{ mt: "50px", mb: "50px" }}>
             <Card sx={{ width: "100%", backgroundColor: "#DBEAFE", position: "relative" }}>
               <CardContent>
                 <Grid container spacing={3}>
