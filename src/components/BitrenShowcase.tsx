@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, Container, Grid, Typography } from "@mui/material";
-import bitrenVideo from "../assets/img/trucks/truck-15.mov";
+import bitrenVideo from "../assets/img/trucks/truck-16.mov";
 import { RevealOnScroll } from "./motion/RevealOnScroll";
 
 
