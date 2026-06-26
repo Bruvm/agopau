@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, Container, Grid, Typography } from "@mui/material";
-import bitrenVideo from "../assets/img/trucks/truck-16.mov";
+import bitrenVideo from "../assets/img/trucks/truck-17.mp4";
 import { RevealOnScroll } from "./motion/RevealOnScroll";
 
 
@@ -8,8 +8,8 @@ export default function BitrenShowcase() {
     <Container id={"bitren"} maxWidth="lg" sx={{ scrollMarginTop: 80, mb: "150px" }}>
       <RevealOnScroll delayMs={40}>
         <Grid container spacing={0} sx={{ position: "relative", zIndex: 1 }}>
-          <Grid size={{ xs: 12 }} sx={{ mt: "0px", mb: "50px" }}>
-            <Card sx={{ width: "100%", backgroundColor: "#DBEAFE", position: "relative" }}>
+          <Grid size={{ xs: 12, md: 12 }} sx={{ mt: "0px", mb: "50px" }}>
+             <Card sx={{ width: "100%", backgroundColor: "#DBEAFE", position: "relative" }}>
               <CardContent>
                 <Grid container spacing={3}>
 
@@ -18,7 +18,7 @@ export default function BitrenShowcase() {
                     mt={{ xs: 3, md: 0 }}
                     sx={{ order: { xs: 1, md: -1 } }}
                   >
-                    <Box sx={{ backgroundColor: "#DBEAFE", position: { xs: "relative", md: "absolute" }, top: { md: "50%" }, left: { md: 50 }, transform: { md: "translateY(-50%)" }, p: { xs: 2, md: 4 }, width: { xs: "100%", md: "40%" }, zIndex: 99 }} >
+                    <Box sx={{ backgroundColor: "#DBEAFE", position: { xs: "relative", md: "absolute" }, top: { md: "50%" }, left: { md: 150 }, transform: { md: "translateY(-50%)" }, p: { xs: 2, md: 4 }, width: { xs: "100%", md: "40%" }, zIndex: 99 }} >
 
 
                       <RevealOnScroll delayMs={150}>
@@ -52,8 +52,9 @@ export default function BitrenShowcase() {
                         playsInline
                         sx={{
                           width: "100%",
-                          height: { xs: 300, sm: 400, lg: 560 },
-                          objectFit: "cover",
+                          height: { xs: 400, sm: 520, md: 640 },
+                          objectFit: "contain",
+                          backgroundColor: "#DBEAFE",
                           display: "block",
                         }}
                       />
