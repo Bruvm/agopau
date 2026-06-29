@@ -17,7 +17,7 @@ import { RevealOnScroll } from "./motion/RevealOnScroll";
 import { EASE_PREMIUM } from "../theme";
 
 const SERVICE_ID = "service_km6xzs1";
-const TEMPLATE_ID = "template_uavffls";
+const TEMPLATE_ID = "template_cpanldn";
 const PUBLIC_KEY = "XBUfeh_WPdM0TFIhx";
 
 const Contact = () => {
@@ -34,6 +34,7 @@ const Contact = () => {
         e.preventDefault();
         if (!form.current) return;
         setSending(true);
+        setError(false);
         try {
             emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
                 .then(() => {
@@ -133,7 +134,7 @@ const Contact = () => {
                                 <RevealOnScroll delayMs={100}>
                                     <TextField
                                         fullWidth
-                                        name="from_name"
+                                        name="user_name"
                                         label="Nombre"
                                         placeholder="Tu nombre"
                                         margin="normal"
@@ -153,7 +154,7 @@ const Contact = () => {
                                 <RevealOnScroll delayMs={180}>
                                     <TextField
                                         fullWidth
-                                        name="reply_to"
+                                        name="user_email"
                                         label="Email"
                                         placeholder="Ingrese un email de contacto"
                                         margin="normal"
