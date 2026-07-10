@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import Hero from "../components/Hero"
 import History from "../components/History"
 import Loads from "../components/Loads"
+import FleetShowcase from "../components/FleetShowcase"
 import BitrenShowcase from "../components/BitrenShowcase"
 import PLaces from "../components/Places"
 import WhatsAppButton from "../components/WhatsAppButton"
@@ -18,6 +19,7 @@ function Layout() {
       <History />
       <PLaces />
       <Loads />
+      <FleetShowcase />
       <BitrenShowcase />
       <Clients />
       <Contact />

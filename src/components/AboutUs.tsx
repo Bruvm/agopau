@@ -7,14 +7,14 @@ import {
   IconButton,
 } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import img from "../assets/img/img.png";
+//import img from "../assets/img/img.png";
 import { RevealOnScroll } from "./motion/RevealOnScroll";
 import { EASE_PREMIUM } from "../theme";
+import our1 from "../assets/img/our/our-1.jpg";
+import our2 from "../assets/img/our/our-2.jpg";
 
 const images = [
-  [img, img],
-  [img, img],
-  [img, img],
+  [our1, our2],
 ];
 
 export default function AboutUs() {

@@ -1,13 +1,14 @@
 import { Box, Card, CardContent, Container, Grid, IconButton, Typography } from "@mui/material";
 import arrows from "../assets/img/arrow.png";
-import img from "../assets/img/img.png";
+//import img from "../assets/img/img.png";
 import { useState, useEffect, useCallback } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { RevealOnScroll } from "./motion/RevealOnScroll";
 import { EASE_PREMIUM } from "../theme";
+import our3 from "../assets/img/our/our-3.jpg";
 
 export default function History() {
-    const images = [img, img, img];
+    const images = [our3];
 
     const [activeIndex, setActiveIndex] = useState(0);
 

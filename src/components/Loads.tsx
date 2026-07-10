@@ -43,7 +43,7 @@ export default function Loads() {
 
   return (
     <RevealOnScroll id={"services"} sx={{ scrollMarginTop: 80 }}>
-      <Container sx={{ position: "relative", my: "150px" }}>
+      <Container sx={{ position: "relative", mt: "150px", mb: "100px" }}>
         <Grid
           container
           alignItems="center"
