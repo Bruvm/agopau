@@ -6,9 +6,10 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { RevealOnScroll } from "./motion/RevealOnScroll";
 import { EASE_PREMIUM } from "../theme";
 import our3 from "../assets/img/our/our-3.jpg";
+import our5 from "../assets/img/our/our-5.jpg";
 
 export default function History() {
-    const images = [our3];
+    const images = [our3, our5];
 
     const [activeIndex, setActiveIndex] = useState(0);
 
