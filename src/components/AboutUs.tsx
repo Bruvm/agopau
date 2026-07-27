@@ -64,7 +64,7 @@ export default function AboutUs() {
             </RevealOnScroll>
             <RevealOnScroll delayMs={180}>
               <Typography>
-                En 22 años hemos trabajado incansablemente para brindar nuestros
+                En más de 20 años hemos trabajado incansablemente para brindar nuestros
                 servicios con honestidad y responsabilidad.
               </Typography>
             </RevealOnScroll>
