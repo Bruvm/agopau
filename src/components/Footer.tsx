@@ -1,6 +1,6 @@
 import { Box, Container, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
-import logoOne from "../assets/img/AGOSPAU-B.png";
-import logoTwo from "../assets/img/AGOSPAUSA-B.png";
+import logoOne from "../assets/img/AGOSPAU.png";
+import logoTwo from "../assets/img/AGOSPAUSA.png";
 import arrows from '../assets/img/arrow.png'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -24,8 +24,8 @@ export default function Footer() {
         },
         {
             icon: <LocalPhoneIcon />,
-            text: '+54 353 5646231',
-            href: 'tel:+543535646231'
+            text: '+54 353 4256029',
+            href: 'tel:+543534256029'
         },
         {
             icon: <EmailIcon />,

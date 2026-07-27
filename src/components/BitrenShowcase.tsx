@@ -33,7 +33,7 @@ export default function BitrenShowcase() {
                       </RevealOnScroll>
                       <RevealOnScroll delayMs={220}>
                         <Typography mb={3}>
-                          Contamos con una unidad Bitren de última generación que nos permite transportar mayores volúmenes de carga de manera segura y eficiente.
+                          Contamos con unidades Bitren de última generación que nos permite transportar mayores volúmenes de carga de manera segura y eficiente.
                           <br></br>
                           Gracias a su mayor capacidad, optimizamos los tiempos de traslado y ofrecemos un servicio más competitivo para nuestros clientes. Además, tiene un menor impacto ambiental y tecnología de avanzada en seguridad vial.
                         </Typography>
