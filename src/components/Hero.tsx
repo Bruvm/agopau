@@ -1,202 +1,117 @@
-import { Box, Button, Container, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import hero from "../assets/img/hero.png";
-import arrows from "../assets/img/arrows.png";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";
+import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
+import hero from "../assets/img/hero-2.png";
 import Navbar from "./Navbar";
-import { keyframes } from "@mui/system";
+import { EASE_PREMIUM } from "../theme";
 
-const heroFadeUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+const HERO_FEATURES = [
+  { icon: LocalShippingOutlinedIcon, label: "Transporte de cargas generales y frigoríficas" },
+  { icon: AcUnitOutlinedIcon, label: "Cadena de frío" },
+  { icon: VerifiedUserOutlinedIcon, label: "Seguridad en todo el recorrido" },
+  { icon: LocationOnOutlinedIcon, label: "Cobertura nacional" },
+  { icon: HandshakeOutlinedIcon, label: "Experiencia y confianza" },
+];
 
 export default function Hero() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: "100vh",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <Box
-        component="img"
-        src={hero}
-        alt="Fondo de camión de carga"
-        fetchPriority="high"
-        sx={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: { xs: "0%", sm: "50%", md: "66.667%" },
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center",
-          zIndex: 0,
-          animation: `heroBackgroundZoom 20s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
-          willChange: "transform",
-        }}
-      />
+    <Box sx={{ width: "100%" }}>
+      <Navbar />
 
       <Box
         sx={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: { xs: "0%", sm: "50%", md: "66.667%" },
-          height: "100%",
-          backgroundColor: "rgba(0,0,0,0.45)",
-          zIndex: 1,
-        }}
-      />
-
-      <Box
-        sx={{
-          width: { xs: "100%", sm: "50%", md: "33.333%" },
-          height: "100%",
-          backgroundColor: "primary.main",
           position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          p: { xs: 3, md: 6 },
-          color: "white",
-          zIndex: 2,
+          width: "100%",
+          height: { xs: "58vh", sm: "62vh", md: "90vh" },
+          overflow: "hidden",
         }}
-      />
+      >
+        <Box
+          component="img"
+          src={hero}
+          alt="Camión Scania de Transporte Agospau circulando por una ruta de montaña al atardecer"
+          fetchPriority="high"
+          sx={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: { xs: "30% center", md: "center" },
+            zIndex: 0,
+            animation: `heroBackgroundZoom 20s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+            willChange: "transform",
+          }}
+        />
+
+      </Box>
 
       <Box
-        component="img"
-        src={arrows}
-        alt="arrows"
         sx={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          width: { xs: "100%", sm: "50%", md: "33.333%" },
-          display: "block",
-          zIndex: 10,
+          backgroundColor: "primary.main",
+          color: "custom.white",
         }}
-      />
-
-      <Box sx={{ position: "absolute", zIndex: 99, top: 0, left: 0, width: "100%" }}>
-        <Navbar />
-        <Container
-          maxWidth="lg"
-          sx={{
-            height: "100vh",
-            display: "flex",
-            alignItems: "center",
-            p: 0,
-            pt: "100px",
-            px: {
-              xs: 5,
-              md: 0,
-              lg: 0,
-            },
-          }}
-        >
-          <Box
-            sx={{
-              opacity: 0,
-              transform: "translateY(24px)",
-              animation: `${heroFadeUp} 600ms ease-out 120ms forwards`,
-              willChange: "opacity, transform",
-            }}
-          >
-            <Grid container spacing={0} sx={{ mb: "50px" }}>
-              <Grid size={{ xs: 12 }}>
-                <Box mb={"10px"}>
-                  <Typography
-                    variant="h1"
-                    sx={{
-                      fontWeight: 700,
-                      color: "custom.white",
-                      fontSize: {
-                        xs: "3rem",
-                        sm: "3rem",
-                        lg: "3.5rem",
-                        xl: "4.5rem",
-                      },
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    Tu carga, en
-                  </Typography>
-                </Box>
-                <Box mb={"10px"}>
-                  <Typography
-                    variant="h1"
-                    sx={{
-                      fontWeight: 700,
-                      color: "custom.white",
-                      fontSize: {
-                        xs: "3rem",
-                        sm: "3rem",
-                        lg: "3.5rem",
-                        xl: "4.5rem",
-                      },
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    manos seguras y
-                  </Typography>
-                </Box>
-                <Box mb={"10px"}>
-                  <Typography
-                    variant="h1"
-                    sx={{
-                      fontWeight: 700,
-                      color: "custom.white",
-                      fontSize: {
-                        xs: "3rem",
-                        sm: "3rem",
-                        lg: "3.5rem",
-                        xl: "4.5rem",
-                      },
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    expertas
-                  </Typography>
-                </Box>
-              </Grid>
-              <Grid size={{ xs: 12 }} mt={"25px"}>
-                <Button
-                  variant="contained"
-                  size={isMobile ? "small" : "medium"}
-                  href="#services"
+      >
+        <Container maxWidth="lg">
+          <Grid container spacing={0} sx={{ py: { xs: 0, md: 2.5 } }}>
+            {HERO_FEATURES.map(({ icon: Icon, label }, idx) => {
+              const isLast = idx === HERO_FEATURES.length - 1;
+              return (
+                <Grid
+                  key={label}
+                  size={{ xs: isLast ? 12 : 6, md: 2.4 }}
                   sx={{
-                    py: 1,
-                    px: 3,
-                    borderRadius: 0,
-                    backgroundColor: "secondary.main",
-                    boxShadow: "0px 6px 12px rgba(0,0,0,0.18)",
-                    transition:
-                      "transform 200ms ease-out, box-shadow 200ms ease-out, background-color 200ms ease-out",
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
+                    alignItems: "center",
+                    textAlign: { xs: "center", md: "left" },
+                    justifyContent: { xs: "center", md: "flex-start" },
+                    gap: { xs: 0.75, md: 1.5 },
+                    py: { xs: 2.5, md: 0 },
+                    px: { xs: 1.5, md: 2.5 },
+                    borderBottom: {
+                      xs: !isLast ? "1px solid rgba(255,255,255,0.15)" : "none",
+                      md: "none",
+                    },
+                    borderRight: {
+                      xs: idx % 2 === 0 && !isLast ? "1px solid rgba(255,255,255,0.15)" : "none",
+                      md: !isLast ? "1px solid rgba(255,255,255,0.25)" : "none",
+                    },
+                    transition: `transform 250ms ${EASE_PREMIUM}`,
                     "&:hover": {
-                      backgroundColor: "secondary.light",
-                      transform: "translateY(-2px)",
-                      boxShadow: "0px 10px 20px rgba(0,0,0,0.22)",
+                      transform: { md: "translateY(-4px)" },
+                    },
+                    "&:hover .hero-feature-icon": {
+                      color: "secondary.main",
+                      transform: "scale(1.12)",
                     },
                   }}
-                  endIcon={<KeyboardArrowRightIcon />}
                 >
-                  Nuestras cargas
-                </Button>
-              </Grid>
-            </Grid>
-          </Box>
+                  <Icon
+                    className="hero-feature-icon"
+                    sx={{
+                      fontSize: { xs: 26, md: 28 },
+                      flexShrink: 0,
+                      transition: `color 250ms ${EASE_PREMIUM}, transform 250ms ${EASE_PREMIUM}`,
+                    }}
+                  />
+                  <Typography
+                    sx={{
+                      fontSize: { xs: "0.72rem", md: "0.8rem" },
+                      fontWeight: 600,
+                      lineHeight: 1.25,
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {label.toUpperCase()}
+                  </Typography>
+                </Grid>
+              );
+            })}
+          </Grid>
         </Container>
       </Box>
     </Box>
